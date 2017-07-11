@@ -4,6 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.net.MalformedURLException;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BankTransferPage;
 import pages.MainPage;
 
@@ -24,18 +27,27 @@ public class BankTransferTest extends AndroidSetup{
     }
 
     @Test
-    public void BankTransferTest() {
-        MainPage mainPage;
-        BankTransferPage bankpage;
-        bankpage = new BankTransferPage(driver).continueTap();
-        mainPage = new MainPage(driver).setLogin("662266");
+    public void BankTransferTest() throws Exception {
+
+        WebDriverWait wait  = new WebDriverWait(driver, 30);
+
+
+        BankTransferPage bankpage = new BankTransferPage(driver);
+        bankpage.continueTap();
+        MainPage mainPage = new MainPage(driver);
+        mainPage.setLogin("662266");
         mainPage.setPassword();
         mainPage.allowAcces();
         bankpage.openBankTransfer();
         mainPage.continueTap();
+        bankpage.addNewBeneficiaryclick();
+        bankpage.chooseTransferTypeMySelf("To myself");
+        bankpage.clickNextButton();
+        bankpage.chooseCountry("Russia");
+        bankpage.chooseCurrency("EUR");
+
+        bankpage.clickNextButton();
     }
-
-
 
 
 

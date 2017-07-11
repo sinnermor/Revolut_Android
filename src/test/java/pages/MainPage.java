@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +34,7 @@ public class MainPage extends BasePage{
     @AndroidFindBy(xpath = "//android.widget.Button[@text='Allow contact access']")
     private MobileElement allowAccesButton;
 
-    @AndroidFindBy(xpath = "//android.widget.Button[@text='Разрешить']")
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Allow']")
     private MobileElement confirmButton;
 
 
@@ -58,6 +59,7 @@ public class MainPage extends BasePage{
     }
 
     public MainPage allowAcces(){
+        isElementPresentedByLocator(MobileBy.xpath("//android.widget.TextView[@text='To bank account']"));
         allowAccesButton.click();
         waitElementToBeClickable(confirmButton);
         confirmButton.click();

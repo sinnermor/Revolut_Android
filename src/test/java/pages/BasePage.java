@@ -34,4 +34,12 @@ public class BasePage {
         }
     }
 
+    protected void waitForVisibilityOf(By by) {
+        (new WebDriverWait(driver, 3))
+                .until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+
+
+
 }
