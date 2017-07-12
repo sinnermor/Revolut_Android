@@ -45,8 +45,13 @@ public class BankTransferTest extends AndroidSetup{
         bankpage.clickNextButton();
         bankpage.chooseCountry("Russia");
         bankpage.chooseCurrency("EUR");
-
         bankpage.clickNextButton();
+        bankpage.fillAccountDetails("Anastasiia", "Kordiukova", "662266", "AVJSRUMM", "+79102365599", "test@mail.ru");
+        bankpage.clickNextButton();
+        bankpage.fillBeneficaryAdress("Russia", "390006", "test", "Ryazan", "Ryazan");
+        bankpage.clickNextButton();
+
+//   add assert and final step     assert ele
     }
 
 

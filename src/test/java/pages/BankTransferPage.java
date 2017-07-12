@@ -41,8 +41,6 @@ public class BankTransferPage extends  BasePage{
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='To myself']/preceding-sibling::*[1]")
     private MobileElement myTransferButton;
 
-
-
     @AndroidFindBy(xpath = "//android.widget.Button[@text='Next']")
     private MobileElement nextButton;
 
@@ -61,8 +59,38 @@ public class BankTransferPage extends  BasePage{
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Euro']")
     private MobileElement currencySelector;
 
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/first_name")
+    private MobileElement firstNameField;
 
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/last_name")
+    private MobileElement lastNameField;
 
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text='Account number']")
+    private MobileElement IBANField;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text='BIC / SWIFT']")
+    private MobileElement BICField;
+
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/mobile_phone")
+    private MobileElement phoneField;
+
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/email")
+    private MobileElement emailField;
+
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/wrapper_country")
+    private MobileElement countryBenefField;
+
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/address_postal_code")
+    private MobileElement postalCodeField;
+
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/address_line_1")
+    private MobileElement adress1Field;
+
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/address_city")
+    private MobileElement cityField;
+
+    @AndroidFindBy(id = "com.revolut.revolut.test:id/address_region")
+    private MobileElement stateField;
 
 
     public BankTransferPage continueTap(){
@@ -117,5 +145,28 @@ public class BankTransferPage extends  BasePage{
         currencySelector.click();
         return this;
     }
+
+    public BankTransferPage fillAccountDetails(String firstname, String lastName, String iban, String swift, String phone, String email){
+        firstNameField.sendKeys(firstname);
+        lastNameField.sendKeys(lastName);
+        IBANField.sendKeys(iban);
+        BICField.sendKeys(swift);
+        phoneField.sendKeys(phone);
+        emailField.sendKeys(email);
+        return this;
+    }
+
+    public BankTransferPage fillBeneficaryAdress(String country, String postCode, String adress, String city, String state ){
+        searchField.sendKeys(country);
+        countrySelector.click();
+        postalCodeField.sendKeys(postCode);
+        adress1Field.sendKeys(adress);
+        cityField.sendKeys(city);
+        stateField.sendKeys(state);
+        return this;
+    }
+
+
+
 
 }
