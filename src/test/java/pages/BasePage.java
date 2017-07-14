@@ -1,4 +1,5 @@
 package pages;
+
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,8 +39,6 @@ public class BasePage {
         (new WebDriverWait(driver, 3))
                 .until(ExpectedConditions.presenceOfElementLocated(by));
     }
-
-
 
 
 }
