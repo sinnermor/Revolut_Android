@@ -27,7 +27,6 @@ public class BankTransferTest extends AndroidSetup {
 
     @Test
     public void BankTransferTest() throws Exception {
-
         WebDriverWait wait = new WebDriverWait(driver, 30);
         MainPage mainpage = new MainPage(driver);
         BankTransferPage bankpage = new BankTransferPage(driver);
@@ -43,9 +42,8 @@ public class BankTransferTest extends AndroidSetup {
         bankpage.fillAccountDetails("Anastasiia", "Kordiukova", "662266", "AVJSRUMM", "+79102365599", "test@mail.ru");
         bankpage.clickNextButton();
         bankpage.fillBeneficaryAdress("Russia", "390006", "test", "Ryazan", "Ryazan");
-//        bankpage.clickNextButton();
-
-//   add assert and final step     assert ele
+        bankpage.clickNextButton();
+        assert bankpage.checkSucessAdded() : "Somthing went wrong";
     }
 
 
